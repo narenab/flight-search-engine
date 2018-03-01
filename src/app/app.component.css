@@ -1,0 +1,71 @@
+.header {
+    grid-area: header; 
+    background: #c0c3c5;
+    color:#000;
+}
+    
+.header h1{
+  margin: 10px;
+}
+
+div.search-box{  
+  height: 100%;
+  background: lightgray;
+}
+
+div.flight-card{
+  /* margin:30px; */
+  grid-area: flight-card;
+  width:100%;
+  align-content: center;
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: background-image 0.5s linear;
+  -webkit-transition: background-image 0.5s linear;
+  
+}
+/* WHILE SEARCHING FOR COMPONENTS */
+.loading{
+   background-size:contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+div.info-box{
+  /* margin:30px; */
+  width:100%;
+  align-content: center;
+}
+.wrapper{
+    display: grid;
+    grid-template-areas: "header header"
+                         "search-box flight-card"
+                         "footer footer";
+  
+    grid-template-columns: 25% 1fr;
+  
+    grid-template-rows: 60px 
+              1fr 
+              0px;
+  
+    min-height: 100vh;
+}
+
+@media screen and (max-width: 600px) {
+	.wrapper {
+		grid-template-areas: "header"
+		                     "search-box"
+		                     "info-box"
+		                     "flight-card"
+		                     "footer";
+
+		grid-template-columns: 100%;
+		grid-template-rows: 70px 
+							400px 
+							0.1fr
+							0.5fr 
+              30px;
+    overflow: scroll;
+  }
+}
+

@@ -1,0 +1,10 @@
+<div class="wrapper">
+  <div class="header"><h1>{{title}}</h1></div>
+  <div class="search-box">
+    <app-flight-search-form (onSearchResults)="updateInputParams($event)" (loadingComponent)="swapLoading($event)"></app-flight-search-form>
+  </div>
+ 
+  <div class="flight-card" [ngClass]="{'loading':loading}">
+    <app-flight-search-result [searchResults]="searchResults" (fly)="updateFlying($event)"></app-flight-search-result>
+  </div>
+</div>
