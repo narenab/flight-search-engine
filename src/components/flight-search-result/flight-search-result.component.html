@@ -5,11 +5,11 @@
 <div *ngFor="let flight of searchResults.oneWayFlights;let i=index">
   <div class="flightCards" *ngIf="searchResults.bookingInfo.oneway">
     <div class="onwardDetails">
-      <h1>Rs. {{flight.amount}}</h1>
+      <h1>{{flight.amount | currency:'&#8377;'}}</h1>
       <sub>{{flight.flightNo}}</sub>
       <h4>{{flight.origin.toUpperCase()}}&nbsp;>>&nbsp;{{flight.destination.toUpperCase()}}</h4>
-      <h4>Depart:{{flight.time.depart|date:'jm'}}</h4>
-      <h4>Arrives:{{flight.time.arrive|date:'jm'}}</h4>
+      <h4>Depart:{{flight.time.depart|date:'hh:mm a'}}</h4>
+      <h4>Arrives:{{flight.time.arrive|date:'hh:mm a'}}</h4>
     </div>
     <div class="booking">
       <div class="bookingImage"></div>
@@ -21,19 +21,19 @@
 <div class="flightCards" *ngFor="let flight of searchResults.returningFlights;let i=index">
   <div *ngIf="!searchResults.bookingInfo.oneway && searchResults.returningFlights[i] !== undefined && searchResults.oneWayFlights[i]!==undefined">
     <div class="onwardDetails">
-      <h1>Rs. {{searchResults.oneWayFlights[i].amount}}</h1>
+      <h1>{{searchResults.oneWayFlights[i].amount + flight.amount | currency:'&#8377;'}}</h1>
       <sub>{{searchResults.oneWayFlights[i].flightNo}}</sub>
       <h4>{{searchResults.oneWayFlights[i].origin.toUpperCase()}}&nbsp;>>&nbsp;{{searchResults.oneWayFlights[i].destination.toUpperCase()}}</h4>
-      <h4>Depart:{{searchResults.oneWayFlights[i].time.depart|date:'jm'}}</h4>
-      <h4>Arrives:{{searchResults.oneWayFlights[i].time.arrive|date:'jm'}}</h4>
+      <h4>Depart:{{searchResults.oneWayFlights[i].time.depart|date:'hh:mm a'}}</h4>
+      <h4>Arrives:{{searchResults.oneWayFlights[i].time.arrive|date:'hh:mm a'}}</h4>
     </div>
     <div class="returnDetails">
       <div *ngIf="searchResults.returningFlights.length>0 && searchResults.returningFlights[i] !== undefined && searchResults.oneWayFlights[i]!==undefined">
-        <h1>Rs. {{flight.amount}}</h1>
+        <!-- <h1>{{flight.amount  | currency:'&#8377;'}}</h1> -->
         <sub>{{flight.flightNo}}</sub>
         <h4>{{flight.origin.toUpperCase()}}&nbsp;>>&nbsp;{{flight.destination.toUpperCase()}}</h4>
-        <h4>Depart:{{flight.time.depart|date:'jm' }}</h4>
-        <h4>Arrives:{{flight.time.arrive |date:'jm'}}</h4>
+        <h4>Depart:{{flight.time.depart|date:'hh:mm a' }}</h4>
+        <h4>Arrives:{{flight.time.arrive |date:'hh:mm a'}}</h4>
       </div>
     </div>
     <div class="booking">
