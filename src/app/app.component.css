@@ -1,3 +1,9 @@
+@import "~nouislider/distribute/nouislider.min.css";
+
+[nouislider] {
+	margin: 15px 0;
+}
+
 .header {
     grid-area: header; 
     background: #c0c3c5;

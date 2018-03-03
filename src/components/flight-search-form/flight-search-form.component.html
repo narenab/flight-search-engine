@@ -67,7 +67,7 @@
       name="passengers" />
 
     <!-- Submit -->
-    <input type="submit" id="search" name="searchbtn" (click)="clickSearchButton(search)" />
+    <input class="btn btn-primary" type="submit" id="search" name="searchbtn" (click)="clickSearchButton(search)" />
     <div *ngIf="invalidForm" class="alert alert-danger">
       <sub style="color:#F74A4A">Invalid Form Data</sub>
     </div>
@@ -80,4 +80,6 @@
   <p>Rs.{{search.refine}}</p>
   <input type="range" id="refine" [(ngModel)]="search.refine" steps="100" name="points" min="1000" max="20000" (change)="sliderChangeEvent($event)"
   />
+ 
+
 </div>
